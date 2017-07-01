@@ -6,6 +6,8 @@ Comes with a basic contact form with name/email/company/phone/message fields. Co
 
 This also includes settings to handle address, social media links, and a google map api key.
 
+The default public route is `/contact`, which will show the form for the `Flatly` theme.
+
 
 ## Installation
 
@@ -32,5 +34,5 @@ This is if the contact module is perfect for your use-case as-is, and doesn't ne
 
 
 ![](https://cldup.com/v41guA8CAg-3000x3000.png)
-![](https://cldup.com/LEZjQ6BMpc-1200x1200.png)
+![](https://cldup.com/o-G0mAB4Ge-2000x2000.png)
 ![](https://cldup.com/uKwiCix0qX-1200x1200.png)
