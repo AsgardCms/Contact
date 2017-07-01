@@ -32,6 +32,8 @@ php artisan module:migrate contact
 
 This is if the contact module is perfect for your use-case as-is, and doesn't need any changes to fit your needs.
 
+**Note: Don't forget to give yourself the required permissions before you can view the backend entries.**
+
 
 ![](https://cldup.com/v41guA8CAg-3000x3000.png)
 ![](https://cldup.com/o-G0mAB4Ge-2000x2000.png)
