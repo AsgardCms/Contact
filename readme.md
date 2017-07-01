@@ -4,6 +4,8 @@ Simple module, ready to be customised to handle contact forms and pages.
 
 Comes with a basic contact form with name/email/company/phone/message fields. Contact requests are displayed on the backend.
 
+This also includes settings to handle address, social media links, and a google map api key.
+
 
 ## Installation
 
@@ -30,3 +32,5 @@ This is if the contact module is perfect for your use-case as-is, and doesn't ne
 
 
 ![](https://cldup.com/v41guA8CAg-3000x3000.png)
+![](https://cldup.com/LEZjQ6BMpc-1200x1200.png)
+![](https://cldup.com/uKwiCix0qX-1200x1200.png)
