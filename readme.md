@@ -28,3 +28,5 @@ php artisan module:migrate contact
 
 This is if the contact module is perfect for your use-case as-is, and doesn't need any changes to fit your needs.
 
+
+![](https://cldup.com/v41guA8CAg-3000x3000.png)
