@@ -20,6 +20,8 @@ class SendContactRequestNotification
 
     public function handle(ContactRequestWasCreated $event)
     {
-        $this->mailer->to(env('MAIL_TO_ADMIN'))->queue(new ContactRequestNotification($event->contactRequest));
+        $email = env('MAIL_TO_ADMIN') ?: config('mail.from.address');
+
+        $this->mailer->to($email)->queue(new ContactRequestNotification($event->contactRequest));
     }
 }
