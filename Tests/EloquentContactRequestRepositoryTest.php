@@ -3,7 +3,10 @@
 namespace Modules\Contact\Tests;
 
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Mail;
+use Modules\Contact\Entities\ContactRequest;
 use Modules\Contact\Events\ContactRequestWasCreated;
+use Modules\Contact\Emails\ContactRequestNotification;
 
 class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
 {
@@ -39,6 +42,28 @@ class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
         });
     }
 
+    /** @test */
+    public function it_sends_an_email_when_contact_request_was_created()
+    {
+        Mail::fake();
+
+        $contactRequest = $this->createContactRequest();
+
+        Mail::assertSent(ContactRequestNotification::class, function (ContactRequestNotification $mail) use ($contactRequest) {
+            return $mail->contactRequest->id === $contactRequest->id;
+        });
+    }
+
+    /** @test */
+    public function it_sends_email_with_correct_content()
+    {
+        $contactRequest = factory(ContactRequest::class)->make();
+        $email = new ContactRequestNotification($contactRequest);
+        $rendered = $this->render($email);
+
+        $this->assertContains('Someone contacted you', $rendered);
+    }
+
     private function createContactRequest()
     {
         $faker = \Faker\Factory::create();
@@ -50,5 +75,12 @@ class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
             'phone' => $faker->phoneNumber,
             'message' => $faker->paragraph(10),
         ]);
+    }
+
+    private function render($email)
+    {
+        $email->build();
+
+        return view($email->view, $email->buildViewData())->render();
     }
 }
