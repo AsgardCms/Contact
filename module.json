@@ -7,11 +7,12 @@
     "order": 1,
     "providers": [
         "Modules\\Contact\\Providers\\ContactServiceProvider",
-        "Modules\\Contact\\Providers\\RouteServiceProvider"
+        "Modules\\Contact\\Providers\\RouteServiceProvider",
+        "Modules\\Contact\\Providers\\EventServiceProvider"
     ],
     "aliases": {},
     "files": [
-        
+
     ],
     "requires": []
 }
