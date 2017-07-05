@@ -6,6 +6,7 @@ use Maatwebsite\Sidebar\SidebarServiceProvider;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider;
 use Modules\Contact\Providers\ContactServiceProvider;
+use Modules\Contact\Providers\EventServiceProvider;
 use Modules\Contact\Repositories\ContactRequestRepository;
 use Modules\Core\Providers\CoreServiceProvider;
 use Nwidart\Modules\LaravelModulesServiceProvider;
@@ -33,6 +34,7 @@ abstract class BaseContactRequestTest extends TestCase
             LaravelModulesServiceProvider::class,
             CoreServiceProvider::class,
             ContactServiceProvider::class,
+            EventServiceProvider::class,
             LaravelLocalizationServiceProvider::class,
             SidebarServiceProvider::class,
         ];
@@ -55,6 +57,10 @@ abstract class BaseContactRequestTest extends TestCase
             'prefix' => '',
         ));
         $app['config']->set('translatable.locales', ['en', 'fr']);
+        $app['config']->set('modules.namespace', 'Modules');
+        $app['config']->set('modules.paths.modules', __DIR__ . '/../../../Modules');
+        $app['config']->set('stylist.themes.paths', [__DIR__ . '/../../../Themes']);
+        $app['config']->set('asgard.core.core.admin-theme', 'AdminLTE');
     }
 
     private function resetDatabase()
