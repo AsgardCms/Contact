@@ -61,6 +61,7 @@ abstract class BaseContactRequestTest extends TestCase
         $app['config']->set('modules.paths.modules', __DIR__ . '/../../../Modules');
         $app['config']->set('stylist.themes.paths', [__DIR__ . '/../../../Themes']);
         $app['config']->set('asgard.core.core.admin-theme', 'AdminLTE');
+        $app['config']->set('mail.from.address', 'superadmin@gmail.com');
     }
 
     private function resetDatabase()
