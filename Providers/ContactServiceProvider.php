@@ -36,6 +36,10 @@ class ContactServiceProvider extends ServiceProvider
         $this->publishConfig('contact', 'permissions');
         $this->publishConfig('contact', 'settings');
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+
+        if (app()->environment() === 'testing') {
+            $this->app['view']->addNamespace('contact', __DIR__ . '/../Resources/views');
+        }
     }
 
     /**
