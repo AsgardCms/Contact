@@ -2,6 +2,7 @@
 
 namespace Modules\Contact\Providers;
 
+use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
 use Modules\Contact\Entities\ContactRequest;
 use Modules\Contact\Repositories\Cache\CacheContactRequestDecorator;
@@ -27,12 +28,14 @@ class ContactServiceProvider extends ServiceProvider
     public function register()
     {
         $this->registerBindings();
+        $this->registerFactories();
     }
 
     public function boot()
     {
         $this->publishConfig('contact', 'permissions');
         $this->publishConfig('contact', 'settings');
+        $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
     }
 
     /**
@@ -58,5 +61,16 @@ class ContactServiceProvider extends ServiceProvider
         });
 // add bindings
 
+    }
+
+    /**
+     * Register an additional directory of factories.
+     * @source https://github.com/sebastiaanluca/laravel-resource-flow/blob/develop/src/Modules/ModuleServiceProvider.php#L66
+     */
+    public function registerFactories()
+    {
+        if (! app()->environment('production')) {
+            app(Factory::class)->load(__DIR__ . '/../Database/factories');
+        }
     }
 }
