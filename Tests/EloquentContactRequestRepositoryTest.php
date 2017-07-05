@@ -13,6 +13,9 @@ class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
     /** @test */
     public function it_creates_a_contact_request()
     {
+        Mail::fake();
+        Event::fake();
+
         $this->contactRequest->create([
             'name' => 'John Doe',
             'email' => 'john@doe.com',
@@ -33,6 +36,7 @@ class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
     /** @test */
     public function it_triggers_event_when_contact_request_was_created()
     {
+        Mail::fake();
         Event::fake();
 
         $contactRequest = $this->createContactRequest();
