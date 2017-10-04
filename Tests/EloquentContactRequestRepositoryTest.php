@@ -53,7 +53,7 @@ class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
 
         $contactRequest = $this->createContactRequest();
 
-        Mail::assertSent(ContactRequestNotification::class, function (ContactRequestNotification $mail) use ($contactRequest) {
+        Mail::assertQueued(ContactRequestNotification::class, function (ContactRequestNotification $mail) use ($contactRequest) {
             return $mail->contactRequest->id === $contactRequest->id;
         });
     }

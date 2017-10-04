@@ -31,6 +31,7 @@ abstract class BaseContactRequestTest extends TestCase
     protected function getPackageProviders($app)
     {
         return [
+            \Collective\Html\HtmlServiceProvider::class,
             LaravelModulesServiceProvider::class,
             CoreServiceProvider::class,
             ContactServiceProvider::class,
@@ -44,6 +45,8 @@ abstract class BaseContactRequestTest extends TestCase
     {
         return [
             'LaravelLocalization' => LaravelLocalization::class,
+            'Form' => \Collective\Html\FormFacade::class,
+            'Html' => \Collective\Html\HtmlFacade::class,
         ];
     }
 
