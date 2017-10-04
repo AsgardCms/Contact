@@ -1,32 +1,17 @@
 <?php
 
-namespace Modules\Contact\Sidebar;
+namespace Modules\Contact\Events\Handlers;
 
 use Maatwebsite\Sidebar\Group;
 use Maatwebsite\Sidebar\Item;
 use Maatwebsite\Sidebar\Menu;
-use Modules\User\Contracts\Authentication;
+use Modules\Core\Sidebar\AbstractAdminSidebar;
 
-class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
+class RegisterContactSidebar extends AbstractAdminSidebar
 {
     /**
-     * @var Authentication
-     */
-    protected $auth;
-
-    /**
-     * @param Authentication $auth
-     *
-     * @internal param Guard $guard
-     */
-    public function __construct(Authentication $auth)
-    {
-        $this->auth = $auth;
-    }
-
-    /**
+     * Method used to define your sidebar menu groups and items
      * @param Menu $menu
-     *
      * @return Menu
      */
     public function extendWith(Menu $menu)
@@ -34,7 +19,7 @@ class SidebarExtender implements \Maatwebsite\Sidebar\SidebarExtender
         $menu->group(trans('core::sidebar.content'), function (Group $group) {
             $group->item('Contact requests', function (Item $item) {
                 $item->icon('fa fa-envelope-o');
-                $item->weight(0);
+                $item->weight(config('asgard.contact.config.sidebar-position', 15));
                 $item->route('admin.contact.contactrequest.index');
                 $item->authorize(
                     $this->auth->hasAccess('contact.contactrequests.index')

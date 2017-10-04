@@ -5,14 +5,17 @@ namespace Modules\Contact\Providers;
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
 use Modules\Contact\Entities\ContactRequest;
+use Modules\Contact\Events\Handlers\RegisterContactSidebar;
 use Modules\Contact\Repositories\Cache\CacheContactRequestDecorator;
 use Modules\Contact\Repositories\ContactRequestRepository;
 use Modules\Contact\Repositories\Eloquent\EloquentContactRequestRepository;
+use Modules\Core\Events\BuildingSidebar;
+use Modules\Core\Traits\CanGetSidebarClassForModule;
 use Modules\Core\Traits\CanPublishConfiguration;
 
 class ContactServiceProvider extends ServiceProvider
 {
-    use CanPublishConfiguration;
+    use CanPublishConfiguration, CanGetSidebarClassForModule;
     /**
      * Indicates if loading of the provider is deferred.
      *
@@ -29,6 +32,11 @@ class ContactServiceProvider extends ServiceProvider
     {
         $this->registerBindings();
         $this->registerFactories();
+
+        $this->app['events']->listen(
+            BuildingSidebar::class,
+            $this->getSidebarClassForModule('contact', RegisterContactSidebar::class)
+        );
     }
 
     public function boot()
