@@ -2,23 +2,17 @@
 
 return [
     'list resource' => 'List contactrequests',
-    'create resource' => 'Create contactrequests',
-    'edit resource' => 'Edit contactrequests',
+    'show a request' => 'Show a contactrequest',
     'destroy resource' => 'Destroy contactrequests',
     'title' => [
-        'contactrequests' => 'ContactRequest',
-        'create contactrequest' => 'Create a contactrequest',
-        'edit contactrequest' => 'Edit a contactrequest',
+        'contactrequests' => 'ContactRequests',
+        'contactrequest' => 'ContactRequest',
     ],
-    'button' => [
-        'create contactrequest' => 'Create a contactrequest',
-    ],
-    'table' => [
-    ],
-    'form' => [
-    ],
-    'messages' => [
-    ],
-    'validation' => [
-    ],
+    'request information' => 'Request information',
+    'email' => [
+        'new contact request' => 'New contact request',
+        'someone contacted you' => 'Someone contacted you',
+        'from' => 'From',
+        'reply to contact' => 'You can reply to this email to contact',
+    ]
 ];
