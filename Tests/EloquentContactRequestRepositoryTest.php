@@ -65,7 +65,7 @@ class EloquentContactRequestRepositoryTest extends BaseContactRequestTest
         $email = new ContactRequestNotification($contactRequest);
         $rendered = $this->render($email);
 
-        $this->assertContains('Someone contacted you', $rendered);
+        $this->assertContains('someone contacted you', $rendered);
     }
 
     private function createContactRequest()

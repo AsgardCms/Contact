@@ -15,4 +15,7 @@
             <directory suffix=".php">./Tests/</directory>
         </testsuite>
     </testsuites>
+	<php>
+        <env name="MAIL_TO_ADMIN" value="hello@example.com"/>
+    </php>	
 </phpunit>
