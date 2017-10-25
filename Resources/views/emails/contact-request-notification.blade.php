@@ -8,7 +8,7 @@
     <title>{{ trans('contact::contactrequests.email.new contact request') }}</title>
 </head>
 <body>
-<h1>{{ trans('contact::contactrequests.email.someone contacted you') }}</h1>
+<h2>{{ trans('contact::contactrequests.email.someone contacted you') }}</h2>
 
 <ul>
     <li><strong>{{ trans('contact::contactrequests.email.from') }}:</strong> {{ $contactRequest->name }}</li>

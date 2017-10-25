@@ -10,6 +10,7 @@ return [
     ],
     'request information' => 'Contactverzoek gegevens',
     'email' => [
+        'subject' => 'Contactverzoek',
         'new contact request' => 'Nieuw contactverzoek',
         'someone contacted you' => 'Iemand heeft contact opgenomen',
         'from' => 'Afzender',

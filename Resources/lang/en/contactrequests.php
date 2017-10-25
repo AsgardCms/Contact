@@ -10,6 +10,7 @@ return [
     ],
     'request information' => 'Request information',
     'email' => [
+        'subject' => 'Contact Request Notification',
         'new contact request' => 'New contact request',
         'someone contacted you' => 'Someone contacted you',
         'from' => 'From',

@@ -22,6 +22,8 @@ class ContactRequestNotification extends Mailable
 
     public function build()
     {
-        return $this->view('contact::emails.contact-request-notification')->replyTo($this->contactRequest->email);
+        return $this->subject(trans('contact::contactrequests.email.subject'))
+            ->view('contact::emails.contact-request-notification')
+            ->replyTo($this->contactRequest->email);
     }
 }
