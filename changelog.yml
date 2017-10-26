@@ -1,5 +1,10 @@
 url: https://github.com/AsgardCms/Contact
 versions:
+    "3.1.0":
+        added:
+            - AsgardCMS 3.2 support
+            - Register translations for new User module (vuejs)
+            - More translatable fields and content
     "3.0.0":
         added:
             - AsgardCMS v3 support
