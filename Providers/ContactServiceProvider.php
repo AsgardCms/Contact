@@ -52,6 +52,7 @@ class ContactServiceProvider extends ServiceProvider
 
         if (app()->environment() === 'testing') {
             $this->app['view']->addNamespace('contact', __DIR__ . '/../Resources/views');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'contact');
         }
     }
 
