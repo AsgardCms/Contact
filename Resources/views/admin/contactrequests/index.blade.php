@@ -23,11 +23,11 @@
                             <thead>
                             <tr>
                                 <th>{{ trans('core::core.table.created at') }}</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Company</th>
-                                <th>Phone</th>
-                                <th>Message</th>
+                                <th>{{ trans('contact::contact.full-name') }}</th>
+                                <th>{{ trans('contact::contact.email') }}</th>
+                                <th>{{ trans('contact::contact.company') }}</th>
+                                <th>{{ trans('contact::contact.phone') }}</th>
+                                <th>{{ trans('contact::contact.message') }}</th>
                                 <th data-sortable="false">{{ trans('core::core.table.actions') }}</th>
                             </tr>
                             </thead>
@@ -68,11 +68,11 @@
                             <tfoot>
                             <tr>
                                 <th>{{ trans('core::core.table.created at') }}</th>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Company</th>
-                                <th>Phone</th>
-                                <th>Message</th>
+                                <th>{{ trans('contact::contact.full-name') }}</th>
+                                <th>{{ trans('contact::contact.email') }}</th>
+                                <th>{{ trans('contact::contact.company') }}</th>
+                                <th>{{ trans('contact::contact.phone') }}</th>
+                                <th>{{ trans('contact::contact.message') }}</th>
                                 <th>{{ trans('core::core.table.actions') }}</th>
                             </tr>
                             </tfoot>

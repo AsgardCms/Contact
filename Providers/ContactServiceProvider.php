@@ -4,6 +4,7 @@ namespace Modules\Contact\Providers;
 
 use Illuminate\Database\Eloquent\Factory;
 use Illuminate\Support\ServiceProvider;
+use Modules\Core\Events\LoadingBackendTranslations;
 use Modules\Contact\Entities\ContactRequest;
 use Modules\Contact\Events\Handlers\RegisterContactSidebar;
 use Modules\Contact\Repositories\Cache\CacheContactRequestDecorator;
@@ -37,6 +38,10 @@ class ContactServiceProvider extends ServiceProvider
             BuildingSidebar::class,
             $this->getSidebarClassForModule('contact', RegisterContactSidebar::class)
         );
+
+        $this->app['events']->listen(LoadingBackendTranslations::class, function (LoadingBackendTranslations $event) {
+            $event->load('contactrequests', array_dot(trans('contact::contactrequests')));
+        });
     }
 
     public function boot()

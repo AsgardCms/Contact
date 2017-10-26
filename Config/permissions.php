@@ -3,7 +3,7 @@
 return [
     'contact.contactrequests' => [
         'index' => 'contact::contactrequests.list resource',
-        'show' => 'Show a request',
+        'show' => 'contact::contactrequests.show a request',
         'destroy' => 'contact::contactrequests.destroy resource',
     ],
 // append

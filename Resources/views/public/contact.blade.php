@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Contact Food-Atelier | @parent
+    Contact | @parent
 @stop
 @section('meta')
     <meta name="title" content="Contact @setting('core::site-name')" />
