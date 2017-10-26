@@ -9,6 +9,7 @@ use Modules\Contact\Providers\ContactServiceProvider;
 use Modules\Contact\Providers\EventServiceProvider;
 use Modules\Contact\Repositories\ContactRequestRepository;
 use Modules\Core\Providers\CoreServiceProvider;
+use Modules\Translation\Providers\TranslationServiceProvider;
 use Nwidart\Modules\LaravelModulesServiceProvider;
 use Orchestra\Testbench\TestCase;
 
@@ -34,6 +35,7 @@ abstract class BaseContactRequestTest extends TestCase
             \Collective\Html\HtmlServiceProvider::class,
             LaravelModulesServiceProvider::class,
             CoreServiceProvider::class,
+            TranslationServiceProvider::class,
             ContactServiceProvider::class,
             EventServiceProvider::class,
             LaravelLocalizationServiceProvider::class,
