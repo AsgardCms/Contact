@@ -29,7 +29,7 @@
                         <dt>{{ trans('contact::contact.phone') }}</dt>
                         <dd>{{ $request->phone }}</dd>
                         <dt>{{ trans('contact::contact.message') }}</dt>
-                        <dd>{!! nl2br($request->message) !!}</dd>
+                        <dd>{!! nl2br(e($request->message)) !!}</dd>
                     </dl>
                 </div>
             </div>
